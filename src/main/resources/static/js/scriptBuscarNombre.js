@@ -1,8 +1,11 @@
 var listaPaciente= document.getElementById("listaPaciente");
+var ul =document.createElement("ul");
 function optenerNombre(){
 	var nombre= document.getElementById("nombre").value;
+	listaPaciente.removeChild(listaPaciente.childNodes[0])
 	document.getElementById("nombre").value=("");
 	cargarDatos(nombre);
+	listaPaciente.appendChild(ul);
 }
 function cargarDatos(nombre){
 	var request = new XMLHttpRequest();
@@ -64,6 +67,6 @@ function cerarPaciente(paciente){
 	
 	liElement.appendChild(ulElement);
 	
-	listaPaciente.appendChild(liElement);
+	ul.appendChild(liElement);
 }
 	

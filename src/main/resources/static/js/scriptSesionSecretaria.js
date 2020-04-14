@@ -1,7 +1,8 @@
 var listaPaciente= document.getElementById("listaPaciente");
-
+var ul =document.createElement("ul");
 function cargarPacientes(){
 	realizarPeticion("http://localhost:8080/paciente");
+	listaPaciente.appendChild(ul);
 }
 function realizarPeticion( url){
 	
@@ -22,8 +23,9 @@ function procesarDatos(pacientes){
 		cerarPaciente(paciente);
 	}
 	
+		
 }
-function cerarPaciente(paciente){
+function  cerarPaciente(paciente){
 	
 	let liElement=document.createElement("li");
 	let ulElement=document.createElement("ul");
@@ -67,5 +69,5 @@ function cerarPaciente(paciente){
 	
 	liElement.appendChild(ulElement);
 	
-	listaPaciente.appendChild(liElement);
+	ul.appendChild(liElement);
 }
