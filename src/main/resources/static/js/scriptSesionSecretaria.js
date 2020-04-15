@@ -33,7 +33,7 @@ var request= new XMLHttpRequest();
 			procesarDatosC(respuesta);
 		}
 	}
-	request.open("GET",'http://localhost:8080/consultorio/'+idUsuario,false);
+	request.open("GET",'http://localhost:8080/consultorio/'+conSec.idConsultorio,false);
 	request.send();
 }
 function procesarDatosC(consultorio){
