@@ -10,10 +10,10 @@ function optenerDatos(){
 		contrasena :document.getElementById("Contrasena").value,
 		rContrasena:document.getElementById("RContrasena").value,
 	}
-	
-	limpiar();
-	realizarPeticion(nuevoR);
-	
+	if(nuevoR.contrasena==nuevoR.rContrasena){
+		limpiar();
+		realizarPeticion(nuevoR);
+	}
 }
 
 
@@ -42,3 +42,5 @@ function realizarPeticion(nuevoR){
 	request.open("POST","http://localhost:8080/secretaria",true);
 	request.setRequestHeader("Content-type", "application/json");
 	request.send(form);
+	console.log("fin")
+}
