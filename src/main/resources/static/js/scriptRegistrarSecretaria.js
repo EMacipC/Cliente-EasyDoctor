@@ -2,17 +2,13 @@ function optenerDatos(){
 	var nuevoR={
 		nombre:document.getElementById("Nombre").value,
 		apellido:document.getElementById("Apellido").value,
-		fechaNacimiento:document.getElementById("FN").value,
-		curp :document.getElementById("Curp").value,
+		direccion:document.getElementById("Direccion").value,
 		telefono:document.getElementById("Telefono").value,
 		movil:document.getElementById("Movil").value,
 		email:document.getElementById("Email").value,
-		sexo :document.getElementById("Sexo").value,
-		nacionalidad :document.getElementById("Nacionalidad").value,
-		tipoSangre :document.getElementById("TS").value,
-		religion :document.getElementById("Religion").value,
-		escolaridad :document.getElementById("Escolaridad").value,
-		ocupacion :document.getElementById("Ocupacion").value
+		usuario:document.getElementById("Usuario").value,
+		contrasena :document.getElementById("Contrasena").value,
+		rContrasena:document.getElementById("RContrasena").value,
 	}
 	
 	limpiar();
@@ -25,18 +21,15 @@ function limpiar(){
 
 	document.getElementById("Nombre").value ="";
 	document.getElementById("Apellido").value="";
-	document.getElementById("FN").value="";
-	document.getElementById("Curp").value=" ";
+	document.getElementById("Direccion").value="";
 	document.getElementById("Telefono").value="";
 	document.getElementById("Movil").value="";
 	document.getElementById("Email").value="";
-	document.getElementById("Nacionalidad").value="";
-	document.getElementById("Religion").value="";
-	document.getElementById("Escolaridad").value="";
-	document.getElementById("Ocupacion").value="";
+	document.getElementById("Usuario").value="";
+	document.getElementById("Contrasena").value="";
+	document.getElementById("RContrasena").value="";
 	
 }
-
 function realizarPeticion(nuevoR){
 	var request= new XMLHttpRequest();
 	var form=JSON.stringify(nuevoR);
@@ -46,9 +39,6 @@ function realizarPeticion(nuevoR){
 			
 		}
 	}
-	request.open("POST","http://localhost:8080/paciente",true);
+	request.open("POST","http://localhost:8080/secretaria",true);
 	request.setRequestHeader("Content-type", "application/json");
 	request.send(form);
-	
-}
-
