@@ -44,5 +44,4 @@ function realizarPeticion(nuevoR){
 	request.open("POST","http://localhost:8080/doctor",true);
 	request.setRequestHeader("Content-type", "application/json");
 	request.send(form);
-	console.log("fin")
 }
