@@ -32,7 +32,7 @@ function realizarPeticion(nuevoR){
 			
 		}
 	}
-	request.open("POST","http://localhost:8080/secretaria/"+idUsuario,true);
+	request.open("POST","http://localhost:8080/secretaria/crearCons/"+idUsuario,true);
 	request.setRequestHeader("Content-type", "application/json");
 	request.send(form);
 }
