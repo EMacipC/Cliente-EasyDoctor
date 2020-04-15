@@ -1,11 +1,12 @@
 function optenerDatos(){
 	var nuevoR={
 		nombre:document.getElementById("Nombre").value,
-		apelliod:document.getElementById("Apellido").value,
+		apellido:document.getElementById("Apellido").value,
 		direccion:document.getElementById("Direccion").value,
 		telefono:document.getElementById("Telefono").value,
 		movil:document.getElementById("Movil").value,
 		email:document.getElementById("Email").value,
+		especialidad:document.getElementById("Especialidad").value,
 		usuario:document.getElementById("Usuario").value,
 		contrasena :document.getElementById("Contrasena").value,
 		rContrasena:document.getElementById("RContrasena").value,
@@ -25,6 +26,7 @@ function limpiar(){
 	document.getElementById("Telefono").value="";
 	document.getElementById("Movil").value="";
 	document.getElementById("Email").value="";
+	document.getElementById("Especialidad").value="";
 	document.getElementById("Usuario").value="";
 	document.getElementById("Contrasena").value="";
 	document.getElementById("RContrasena").value="";
@@ -39,7 +41,7 @@ function realizarPeticion(nuevoR){
 			
 		}
 	}
-	request.open("POST","http://localhost:8080/secretaria",true);
+	request.open("POST","http://localhost:8080/doctor",true);
 	request.setRequestHeader("Content-type", "application/json");
 	request.send(form);
 	console.log("fin")
