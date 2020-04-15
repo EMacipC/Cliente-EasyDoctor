@@ -23,14 +23,11 @@ function procesarDatos(doctores,usuario,contrasena){
 	for(let doctor of doctores){
 		comparar(doctor,usuario,contrasena);
 	}
-	console.log("sigue");
 }
 function comparar(doctor,usuario,contrasena){
-	console.log(doctor.contrasena);
-	console.log(doctor.usuario);
 	if(doctor.contrasena==contrasena&&doctor.usuario==usuario){
 		 window.location.assign("sesionDoctor.html");
-		 document.cookie="idDoctor="+doctor.id;
+		 document.cookie=doctor.id;
 	}
 }
 function consultarDatosS(usuario,contrasena){
@@ -54,6 +51,6 @@ function procesarDatosS(secretarias,usuario,contrasena){
 function compararS(secretaria,usuario,contrasena){
 	if(secretaria.contrasena==contrasena&&secretaria.usuario==usuario){
 		window.location.assign("sesionSecretaria.html");
-		document.cookie="idSecretaria="+secretaria.id;
+		document.cookie=secretaria.id;
 	}
 }
