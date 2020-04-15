@@ -1,7 +1,10 @@
 function optenerDatos(){
-	var ususario =document.getElementById("usuario").value;
+	var usuario =document.getElementById("usuario").value;
 	var contrasena=document.getElementById("contrasena").value;
-	 consultarDatos(usuario,contrasena);
+	//window.location.assign("sesionSecretaria.html");
+	 consultarDatosS(usuario,contrasena); 
+	consultarDatos(usuario,contrasena);
+	
 }
 function consultarDatos(ususario,contrasena){
 	
@@ -12,32 +15,35 @@ function consultarDatos(ususario,contrasena){
 			procesarDatos(respuesta,ususario,contrasena);
 		}
 	}
-	request.open('GET','http://localhost:8080/doctor',false);
+	request.open('GET','http://localhost:8080/doctor',true);
 	request.send();
 }
 function procesarDatos(doctores,usuario,contrasena){
 	
 	for(let doctor of doctores){
-		comparar(doctor,ususario,contrasena);
+		comparar(doctor,usuario,contrasena);
 	}
-	consultarDatosS(ususario,contrasena);
+	console.log("sigue");
 }
-function comparar(doctor,ususario,contrasena){
-	if(doctor.contraseña==contrasena&&doctor.usuario==usuario){
+function comparar(doctor,usuario,contrasena){
+	console.log(doctor.contrasena);
+	console.log(doctor.usuario);
+	if(doctor.contrasena==contrasena&&doctor.usuario==usuario){
 		 window.location.assign("sesionDoctor.html");
 		 document.cookie="idDoctor="+doctor.id;
 	}
 }
 function consultarDatosS(usuario,contrasena){
-	var request = new XMLHttpRequest();
-	request.onreadystatechange= function(){
+	
+	var requestS = new XMLHttpRequest();
+	requestS.onreadystatechange= function(){
 		if(this.readyState==4 && this.status==200 ){
 			var respuesta=JSON.parse(this.responseText);
-			procesarDatosS(respuesta,ususario,contrasena);
+			procesarDatosS(respuesta,usuario,contrasena);
 		}
 	}
-	request.open('GET','http://localhost:8080/secretaria',false);
-	request.send();
+	requestS.open('GET','http://localhost:8080/secretaria',false);
+	requestS.send();
 	
 }
 function procesarDatosS(secretarias,usuario,contrasena){
@@ -46,6 +52,8 @@ function procesarDatosS(secretarias,usuario,contrasena){
 	}
 }
 function compararS(secretaria,usuario,contrasena){
-	window.location.assign("sesionSecretaria.html");
-	 document.cookie="idSecretaria="+secretaria.id;
+	if(secretaria.contrasena==contrasena&&secretaria.usuario==usuario){
+		window.location.assign("sesionSecretaria.html");
+		document.cookie="idSecretaria="+secretaria.id;
+	}
 }
