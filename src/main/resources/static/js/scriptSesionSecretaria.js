@@ -19,7 +19,7 @@ function mostrarConsultorios(){
 	request.open("GET",'http://localhost:8080/secretaria/'+idUsuario,false);
 	request.send();
 }
-function procesarDatos(secretatia){
+function procesarDatos(secretaria){
 	for(let conSec of secretaria.consSecretaria){
 		optenerCons(conSec);
 	}
@@ -40,7 +40,7 @@ function procesarDatosC(consultorio){
 	
 	var liCons=document.createElement("li");
 	var ulDatos=document.createElement("ul");
-	var liDireccion=document.createElemnt("li");
+	var liDireccion=document.createElement("li");
 	var liTelefono=document.createElement("li");
 	var liEncargado=document.createElement("li");
 	var liEmail=document.createElement("li");
@@ -63,7 +63,4 @@ function procesarDatosC(consultorio){
 	
 	ulCons.appendChild(liCons);
 	
-	
-	
-}
 }
