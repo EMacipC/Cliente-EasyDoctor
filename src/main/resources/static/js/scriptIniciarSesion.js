@@ -27,7 +27,7 @@ function procesarDatos(doctores,usuario,contrasena){
 function comparar(doctor,usuario,contrasena){
 	if(doctor.contrasena==contrasena&&doctor.usuario==usuario){
 		 window.location.assign("sesionDoctor.html");
-		 document.cookie=doctor.id;
+		 document.cookie="idDoctor="+doctor.id;
 	}
 }
 function consultarDatosS(usuario,contrasena){
@@ -51,6 +51,6 @@ function procesarDatosS(secretarias,usuario,contrasena){
 function compararS(secretaria,usuario,contrasena){
 	if(secretaria.contrasena==contrasena&&secretaria.usuario==usuario){
 		window.location.assign("sesionSecretaria.html");
-		document.cookie=secretaria.id;
+		document.cookie="idSecretaria="+secretaria.id;
 	}
 }

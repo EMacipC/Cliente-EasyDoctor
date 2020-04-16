@@ -1,7 +1,7 @@
 var idUsuario=decodeURIComponent(document.cookie);
 function unirse(){
 	var cons=document.getElementById("consultorio").value;
-	var clave=document.getElementById("calve").value;
+	var clave=document.getElementById("clave").value;
 	document.getElementById("consultorio").value="";
 	document.getElementById("clave").value="";
 	optenerCon(cons,clave);
@@ -24,9 +24,9 @@ function procesarDatos(consultorios,cons,clave){
 	}
 	
 }
-function comparar(consu){
+function comparar(consu,cons,clave){
 	
-	if(consu.nombre==cons&&consu.claveAcceso==calve){
+	if(consu.nombre==cons&&consu.claveAcceso==clave){
 		var nuevoR={
 				idConsultorio:consu.id,
 				idSecretaria:idUsuario
@@ -39,7 +39,7 @@ function comparar(consu){
 				
 			}
 		}
-		request.open("POST","http://localhost:8080/doctor",true);
+		request.open("POST","http://localhost:8080/secretaria/inscribri",true);
 		request.setRequestHeader("Content-type", "application/json");
 		request.send(form);
 	}
