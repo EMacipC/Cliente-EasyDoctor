@@ -74,7 +74,11 @@ function procesarDatosC(consultorio){
 	var liEncargado=document.createElement("li");
 	var liEmail=document.createElement("li");
 	var liClave=document.createElement("li");
+	var liBoton=document.createElement("li");
+	var boton=document.createElement("button")
 	
+	
+	boton.innerText=("Entrar");
 	liCons.innerText=("Consultorio: "+consultorio.nombre);
 	liDireccion.innerText=("Direccion: "+consultorio.direccion);
 	liTelefono.innerText=("Telefono: "+consultorio.telefono);
@@ -82,16 +86,23 @@ function procesarDatosC(consultorio){
 	liEmail.innerText=("e-mail: "+consultorio.email);
 	liClave.innerText=("Clave: "+consultorio.claveAcceso);
 	
+	liBoton.appendChild(boton);
+	//liBoton.style.list-style=none;
+	
 	ulDatos.appendChild(liDireccion);
 	ulDatos.appendChild(liTelefono);
 	ulDatos.appendChild(liEncargado);
 	ulDatos.appendChild(liEmail);
 	ulDatos.appendChild(liClave);
+	ulDatos.appendChild(liBoton);
 	
 	liCons.appendChild(ulDatos);
 	
 	ulCons.appendChild(liCons);
-	
+	boton.onclick=function(){
+		document.cookie="idConsultorio="+consultorio.id;
+		window.location.assign("sesionConsSecretaria.html");
+	}
 }
 function readCookie(name) {
 

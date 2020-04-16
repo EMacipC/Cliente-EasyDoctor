@@ -1,7 +1,9 @@
 var listaPaciente= document.getElementById("listaPaciente");
 var ul =document.createElement("ul");
+var idConsultorio=readCookie("idConsultorio");
+console.log(document.cookie);
 function cargarPacientes(){
-	realizarPeticion("http://localhost:8080/paciente");
+	realizarPeticion("http://localhost:8080/paciente/cons/"+idConsultorio);
 	listaPaciente.appendChild(ul);
 }
 function realizarPeticion( url){
@@ -71,3 +73,15 @@ function  cerarPaciente(paciente){
 	
 	ul.appendChild(liElement);
 }
+function readCookie(name) {
+
+	  var nameEQ = name + "="; 
+	  var ca = document.cookie.split(';');
+	  for(var i=0;i < ca.length;i++) {
+	    var c = ca[i];
+	    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+	    if (c.indexOf(nameEQ) == 0) {
+	      return decodeURIComponent( c.substring(nameEQ.length,c.length) );
+	    }
+	  }
+	}

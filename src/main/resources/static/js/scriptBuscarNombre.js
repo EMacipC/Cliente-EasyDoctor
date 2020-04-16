@@ -1,5 +1,6 @@
 var listaPaciente= document.getElementById("listaPaciente");
 var ul =document.createElement("ul");
+var idConsultorio=readCookie("idConsultorio");
 function optenerNombre(){
 	var nombre= document.getElementById("nombre").value;
 	listaPaciente.removeChild(listaPaciente.childNodes[0])
@@ -15,7 +16,7 @@ function cargarDatos(nombre){
 			procesarDatos(respuesta);
 		}
 	}
-	request.open('GET','http://localhost:8080/paciente/nombre/'+nombre,false);
+	request.open('GET','http://localhost:8080/paciente/nombre/'+nombre+"/"+idConsultorio,false);
 	request.send();
 }
 function procesarDatos(pacientes){
@@ -70,3 +71,15 @@ function cerarPaciente(paciente){
 	ul.appendChild(liElement);
 }
 	
+function readCookie(name) {
+
+	  var nameEQ = name + "="; 
+	  var ca = document.cookie.split(';');
+	  for(var i=0;i < ca.length;i++) {
+	    var c = ca[i];
+	    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+	    if (c.indexOf(nameEQ) == 0) {
+	      return decodeURIComponent( c.substring(nameEQ.length,c.length) );
+	    }
+	  }
+	}

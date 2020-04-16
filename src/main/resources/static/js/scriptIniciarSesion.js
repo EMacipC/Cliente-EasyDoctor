@@ -1,4 +1,10 @@
+document.cookie.split(";").forEach(function(c) {
+	document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
+	});
+console.log(document.cookie);
+
 function optenerDatos(){
+	
 	var usuario =document.getElementById("usuario").value;
 	var contrasena=document.getElementById("contrasena").value;
 	//window.location.assign("sesionSecretaria.html");
@@ -27,7 +33,7 @@ function procesarDatos(doctores,usuario,contrasena){
 function comparar(doctor,usuario,contrasena){
 	if(doctor.contrasena==contrasena&&doctor.usuario==usuario){
 		 window.location.assign("sesionDoctor.html");
-		 document.cookie="idDoctor="+doctor.id;
+		 document.cookie="idDoctor="+doctor.id+";idConsultorio="+0;
 	}
 }
 function consultarDatosS(usuario,contrasena){
@@ -51,6 +57,6 @@ function procesarDatosS(secretarias,usuario,contrasena){
 function compararS(secretaria,usuario,contrasena){
 	if(secretaria.contrasena==contrasena&&secretaria.usuario==usuario){
 		window.location.assign("sesionSecretaria.html");
-		document.cookie="idSecretaria="+secretaria.id;
+		document.cookie="idSecretaria="+secretaria.id+";idConsultorio="+0;
 	}
 }

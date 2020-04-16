@@ -1,4 +1,4 @@
-var idUsuario=decodeURIComponent(document.cookie);
+var idUsuario=readCookie("idSecretaria");
 function unirse(){
 	var cons=document.getElementById("consultorio").value;
 	var clave=document.getElementById("clave").value;
@@ -46,7 +46,18 @@ function comparar(consu,cons,clave){
 	
 	
 }
+function readCookie(name) {
 
+	  var nameEQ = name + "="; 
+	  var ca = document.cookie.split(';');
+	  for(var i=0;i < ca.length;i++) {
+	    var c = ca[i];
+	    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+	    if (c.indexOf(nameEQ) == 0) {
+	      return decodeURIComponent( c.substring(nameEQ.length,c.length) );
+	    }
+	  }
+	}
 
 
 
