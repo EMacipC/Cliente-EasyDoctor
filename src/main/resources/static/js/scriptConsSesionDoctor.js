@@ -45,10 +45,18 @@ function  cerarPaciente(paciente){
 	let liboton=document.createElement("li");
 	let boton=document.createElement("button");
 	let boton2=document.createElement("button");
+	let boton3=document.createElement("button");
+	boton3.innerText="Historiales";
 	 boton.innerText="Editar";
 	 boton2.innerText="Cita";
 	liboton.appendChild(boton);
 	liboton.appendChild(boton2);
+	liboton.appendChild(boton3);
+	
+	boton3.onclick=function(){
+		document.cookie="idPciente="+paciente.id;
+		window.location.assign("historialPaciente.html");	
+	}
 	boton2.onclick=function(){
 		document.cookie="idPciente="+paciente.id;
 		window.location.assign("citaSP.html")	

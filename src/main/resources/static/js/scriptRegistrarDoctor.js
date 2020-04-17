@@ -1,7 +1,7 @@
 function optenerDatos(){
 	var nuevoR={
 		nombre:document.getElementById("Nombre").value,
-		apellido:document.getElementById("Apellido").value,
+		apelliod:document.getElementById("Apellido").value,
 		direccion:document.getElementById("Direccion").value,
 		telefono:document.getElementById("Telefono").value,
 		movil:document.getElementById("Movil").value,

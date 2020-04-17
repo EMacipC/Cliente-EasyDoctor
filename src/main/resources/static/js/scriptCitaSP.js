@@ -111,7 +111,7 @@ function optenerDocotres(consDoctor){
 }
 function procesarDatosDoctor(doctor){
 	let opcion=document.createElement("option");
-	var t = document.createTextNode(doctor.nombre+" "+doctor.apellido);
+	var t = document.createTextNode(doctor.nombre+" "+doctor.apelliod);
 	opcion.appendChild(t)
 	 opcion.value=(doctor.id);
 	 listaD.appendChild(opcion);
