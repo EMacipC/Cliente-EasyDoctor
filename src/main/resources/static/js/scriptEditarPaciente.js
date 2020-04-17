@@ -1,5 +1,10 @@
 var idPaciente=readCookie("idPciente");
 console.log(document.cookie)
+var tipoS=readCookie("tipoS");
+var regresar=document.getElementById("regersar")
+function docSec(){
+		regresar.setAttribute("href","sesionCons"+tipoS+".html");
+}
 function optenerDatos(){
 	var nuevoR={
 		nombre:document.getElementById("Nombre").value,
@@ -67,6 +72,7 @@ function readCookie(name) {
 	  }
 	}
 function traerPaciente(){
+	docSec();
 	var request = new XMLHttpRequest();
 	request.onreadystatechange= function(){
 		if(this.readyState==4 && this.status==200 ){

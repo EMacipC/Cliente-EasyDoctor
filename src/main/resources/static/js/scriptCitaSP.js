@@ -4,6 +4,11 @@ var citasP=document.getElementById("citasP");
 var citaF=document.getElementById("citaF");
 var listaD=document.getElementById("doctor");
 console.log(document.cookie)
+var tipoS=readCookie("tipoS");
+var regresar=document.getElementById("regersar")
+function docSec(){
+		regresar.setAttribute("href","sesionCons"+tipoS+".html");
+}
 function mostarCitasP(){
 	var request= new XMLHttpRequest();
 	
@@ -78,6 +83,7 @@ function procesarDatosD(doctor,paciente,cita,nC){
 }
 // generar option Doctores
 function doctores(){
+	docSec();
 	var request= new XMLHttpRequest();
 		
 		request.onreadystatechange= function(){

@@ -1,4 +1,9 @@
 var idConsultorio=readCookie("idConsultorio");
+var tipoS=readCookie("tipoS");
+var regresar=document.getElementById("regersar")
+function docSec(){
+		regresar.setAttribute("href","sesionCons"+tipoS+".html");
+}
 function optenerDatos(){
 	var nuevoR={
 		nombre:document.getElementById("Nombre").value,
