@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Consultorio Doctor</title>
+</head>
+<body onload="perfilCon()">
+<h1>Perfil Consultorio</h1>
+	<div>
+		<h2 id="consultorio"></h2>
+		<ul>
+			<li id="direccion"></li>
+			<li id="telefono"></li>
+			<li id="encargado"></li>
+			<li id="email"></li>
+		</ul>
+	</div>
+	<div>
+		<label>Buscar Paciente</label>
+		<input type="text" id="nombre">
+		<button onclick="optenerNombre()"class="button">Buscar</button>
+	</div>
+	<div>
+		<button onclick="cargarPacientes()" class="button">Paciente</button>
+		<div id="listaPaciente"></div>
+				
+	</div>
+	<div>
+		<a href="registroPaciente.html">Registrar Nuevo Paciente</a>
+	</div>
+	<script type="text/javascript" src="js/scriptBuscarNombreDoctor.js"></script>
+	<script type="text/javascript" src="js/scriptConsSesionDoctor.js"></script>
+	
+
+</body>
+</html>
