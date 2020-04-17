@@ -42,6 +42,21 @@ function  cerarPaciente(paciente){
 	let liReligion =document.createElement("li");
 	let liEscolaridad =document.createElement("li");
 	let liOcupacion =document.createElement("li");
+	let liboton=document.createElement("li");
+	let boton=document.createElement("button");
+	let boton2=document.createElement("button");
+	 boton.innerText="Editar";
+	 boton2.innerText="Cita";
+	liboton.appendChild(boton);
+	liboton.appendChild(boton2);
+	boton2.onclick=function(){
+		document.cookie="idPciente="+paciente.id;
+		window.location.assign("citaSP.html")	
+	}
+	boton.onclick=function(){
+		document.cookie="idPciente="+paciente.id;
+		window.location.assign("editarPaciente.html");
+	}
 	
 
 	liElement.innerText=("Paciente: "+paciente.nombre+" "+paciente.apellido );
@@ -68,6 +83,7 @@ function  cerarPaciente(paciente){
 	ulElement.appendChild(liReligion);
 	ulElement.appendChild(liEscolaridad);
 	ulElement.appendChild(liOcupacion);
+	ulElement.appendChild(liboton);
 	
 	liElement.appendChild(ulElement);
 	

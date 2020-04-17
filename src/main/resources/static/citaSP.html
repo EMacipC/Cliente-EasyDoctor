@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cita</title>
+</head>
+<body onload="doctores()">
+	<div>
+		<div>
+			<h2>Citas Programadas</h2>
+			<button onclick="mostarCitasP()">Citas</button>
+			<ul id="citasP"></ul>
+		</div>
+		<div>
+			<h2>Agendar Cita</h2>
+			<div>
+				<label>Sala</label>
+				<input type="text" id="sala">
+			</div>
+			<div>
+				<label>Estado Cita</label>
+				<input type="text" id="estado">
+			</div>
+			<div>
+				<label>Fecha Agendada</label>
+				<input type="date" id="fecha">
+			</div>
+			<div>
+				<label>Doctor</label>
+				<select id="doctor">
+				</select>
+			</div>
+			<button onclick="registrarCita()">Registrar</button>
+		</div>
+		<div>
+			<h2>Buscar por Fecha</h2>
+			<div>
+				<label>Fecha</label>
+				<input type="date" id="ofecha">
+			</div>
+			<button onclick="buscarCita()">Buscar</button>
+			<div>
+				<ul id="citaF"></ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/scriptCitaSP.js"></script>
+</body>
+</html>
