@@ -30,18 +30,18 @@ function procesarDatosP(paciente){
 	let escolaridad=document.getElementById("escolaridad");
 	let ocupacion=document.getElementById("ocupacion");
 	
-	nombre.innerText=("Paciente: "+paciente.nombre+" "+paciente.apellido );
-	cumple.innerText=("Fecha Nacimiento: "+paciente.fechaNacimiento);
-	curp.innerText=("Curp: "+paciente.curp);
-	telefono.innerText=("Telefono: "+paciente.telefono);
-	movil.innerText=("Movil: "+paciente.movil);
-	email.innerText=("Email: "+paciente.email);
-	sex.innerText=("Sexo: "+paciente.sexo);
-	nacionalidad.innerText=("Nacionalidad: "+paciente.nacionalidad);
-	tipoS.innerText=("Tipo Sanguinio: "+paciente.tipoSangre);
-	religion.innerText=("Religion: "+paciente.religion);
-	escolaridad.innerText=("Escolaridad: "+paciente.escolaridad);
-	ocupacion.innerText=("Ocupacion: "+paciente.ocupacion);
+	nombre.innerText=paciente.nombre+" "+paciente.apellido;
+	cumple.innerText=paciente.fechaNacimiento;
+	curp.innerText=paciente.curp;
+	telefono.innerText=paciente.telefono;
+	movil.innerText=paciente.movil;
+	email.innerText=paciente.email;
+	sex.innerText=paciente.sexo;
+	nacionalidad.innerText=paciente.nacionalidad;
+	tipoS.innerText=paciente.tipoSangre;
+	religion.innerText=paciente.religion;
+	escolaridad.innerText=paciente.escolaridad;
+	ocupacion.innerText=paciente.ocupacion;
 	historialFam(paciente);
 	historialClin(paciente);
 	historialNClin(paciente);
@@ -77,7 +77,7 @@ function historialClin(paciente){
 		 let divAdiccion=document.createElement("div");
 		 let divCirugias=document.createElement("div");
 		 let divOtro=document.createElement("div");
-		 
+
 		 let boton=document.createElement("button");
 		 boton.innerText="Registrar";
 		 boton.onclick=function(){
@@ -92,6 +92,21 @@ function historialClin(paciente){
 			 mandarHistoriaC(nuevoR);
 			 let myVar = setInterval(recargar, 2000);
 		 }
+
+		 divMedico.classList.add('form-group');
+		 divTrauma.classList.add('form-group');
+		 divPsico.classList.add('form-group');
+		 divAdiccion.classList.add('form-group');
+		 divCirugias.classList.add('form-group');
+		 divOtro.classList.add('form-group');
+
+		 texMedico.classList.add('form-control');
+		 texTrauma.classList.add('form-control');
+		 texPsico.classList.add('form-control');
+		 texAdiccion.classList.add('form-control');
+		 texCirugias.classList.add('form-control');
+		 texOtro.classList.add('form-control');
+
 		 divMedico.appendChild(labMedico);
 		 divMedico.appendChild(texMedico);
 		 divTrauma.appendChild(labTrauma);
@@ -115,6 +130,23 @@ function historialClin(paciente){
 	
 	}else{ mostarHistoC(paciente)}
 }
+
+
+function getHistorialClinicoComponent() {
+	return '<div>' +
+				'<div class="form-row">' +
+					'<div class="form-group">' +
+						'<label>Medico</label>'+
+						'<textarea>'
+					'</div>' +
+					'<div class="form-group">' +
+						'<label>Medico</label>'+
+						'<textarea >'
+					'</div>' +
+				'</div>' +
+			'</div>';
+}
+
 function mandarHistoriaC(nuevoR){
 	var request= new XMLHttpRequest();
 	var form=JSON.stringify(nuevoR);

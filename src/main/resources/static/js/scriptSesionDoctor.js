@@ -1,5 +1,6 @@
 var idUsuario=readCookie("idDoctor");
 var ulCons=document.getElementById("lista");
+
 function cargarPerfil(){
 	console.log(document.cookie);
 var request= new XMLHttpRequest();
@@ -22,13 +23,13 @@ function procesarDatosP(doctor){
 	var direccion=document.getElementById("direccion");
 	var email=document.getElementById("email");
 	
-	nombre.innerText=("Nombre: "+doctor.nombre);
-	especialidad.innerText=("Especialidad: "+doctor.especialidad);
-	usuario.innerText=("Usuario: "+doctor.usuario);
-	telefono.innerText=("Telefono: "+doctor.telefono);
-	movil.innerText=("Movil: "+doctor.movil);
-	direccion.innerText=("Direccion: "+doctor.direccion);
-	email.innerText=("E-mail: "+doctor.email);
+	nombre.innerText=doctor.nombre;
+	especialidad.innerText=doctor.especialidad;
+	usuario.innerText=doctor.usuario;
+	telefono.innerText=doctor.telefono;
+	movil.innerText=doctor.movil;
+	direccion.innerText=doctor.direccion;
+	email.innerText=doctor.email;
 	
 }
 function cerrarSesion(){
@@ -61,7 +62,7 @@ var request= new XMLHttpRequest();
 	request.onreadystatechange= function(){
 		if(this.readyState==4 && this.status==200 ){
 			var respuesta=JSON.parse(this.responseText);
-			procesarDatosC(respuesta);
+			procesarDatosConsultorios(respuesta);
 		}
 	}
 	request.open("GET",'http://localhost:8080/consultorio/'+condoc.idConsultorio,false);
@@ -106,6 +107,56 @@ function procesarDatosC(consultorio){
 		window.location.assign("sesionConsDoctor.html");
 	}
 }
+
+function procesarDatosConsultorios(consultorio) {
+	var elementRow= document.createElement("tr");
+	var elementCellId = document.createElement("td");
+	var elementCellNombre = document.createElement("td");
+	var elementCellDireccion = document.createElement("td");
+	var elementCellTelefono = document.createElement("td");
+	var elementCellEncargado = document.createElement("td");
+	var elementCellEmail = document.createElement("td");
+	var elementCellClave = document.createElement("td");
+	var elementCellAcciones = document.createElement("td");
+
+	elementCellId.innerText = consultorio.id;
+	elementCellNombre.innerHTML = '<a href="#">' + consultorio.nombre + '</a>';
+	elementCellDireccion.innerText = consultorio.direccion;
+	elementCellTelefono.innerText = consultorio.telefono;
+	elementCellEncargado.innerText = consultorio.encargado;
+	elementCellEmail.innerText = consultorio.email;
+	elementCellClave.innerText = consultorio.claveAcceso;
+	elementCellAcciones.innerHTML = 
+	'<a href="#" class="btn btn-circle btn-sm" onclick="verDetalleConsultorio(' + consultorio.id + ')">' + 
+		'<i class="fas fa-eye"></i>' +
+    '</a>' +
+	'<a href="#" class="btn btn-circle btn-sm btn-primary">' + 
+		'<i class="fas fa-pen"></i>' +
+    '</a>' +
+    '<a href="#" class="btn btn-circle btn-sm btn-danger">' +
+        '<i class="fas fa-trash"></i>'
+    '</a>'+ 
+    '<a href="unirConsScere.html" class="btn btn-circle btn-sm btn-info" title="Inscripcion">' +
+        '<i class="fab fa-font-awesome-flag"></i>' +
+    '</a>';
+
+	elementRow.appendChild(elementCellId);
+	elementRow.appendChild(elementCellNombre);
+	elementRow.appendChild(elementCellDireccion);
+	elementRow.appendChild(elementCellTelefono);
+	elementRow.appendChild(elementCellEncargado);
+	elementRow.appendChild(elementCellEmail);
+	elementRow.appendChild(elementCellClave);
+	elementRow.appendChild(elementCellAcciones);
+
+	ulCons.appendChild(elementRow);
+}
+
+function verDetalleConsultorio(idConsultorio) {
+	document.cookie="idConsultorio="+idConsultorio;
+	window.location.assign("sesionConsDoctor.html");
+}
+
 function readCookie(name) {
 
 	  var nameEQ = name + "="; 

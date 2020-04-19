@@ -6,6 +6,12 @@ var listaD=document.getElementById("doctor");
 console.log(document.cookie)
 var tipoS=readCookie("tipoS");
 var regresar=document.getElementById("regersar")
+
+function onLoad() {
+	mostarCitasP();
+	doctores();
+}
+
 function docSec(){
 		regresar.setAttribute("href","sesionCons"+tipoS+".html");
 }
@@ -47,7 +53,7 @@ var request= new XMLHttpRequest();
 request.onreadystatechange= function(){
 	if(this.readyState==4 && this.status==200 ){
 		var respuesta=JSON.parse(this.responseText);
-		procesarDatosD(respuesta,paciente,cita,nC);
+		procesarDatosCita(respuesta,paciente,cita,nC);
 	}
 }
 request.open("GET","http://localhost:8080/doctor/"+cita.idDoctor,false);
@@ -80,6 +86,33 @@ function procesarDatosD(doctor,paciente,cita,nC){
 	
 	citasP.appendChild(liElement);
 	
+}
+
+function procesarDatosCita(doctor,paciente,cita,nC){
+	let elementRowCita = document.createElement("tr");
+	let elementCellNumero = document.createElement("td");
+	let elementCellPaciente = document.createElement("td");
+	let elementCellDoctor = document.createElement("td");
+	let elementCellSala = document.createElement("td");
+	let elementCellFecha = document.createElement("td");
+	let elementCellEstado = document.createElement("td");
+
+	
+	elementCellNumero.innerText=nC;
+	elementCellPaciente.innerText=paciente.nombre;
+	elementCellDoctor.innerText=doctor.nombre;
+	elementCellSala.innerText=cita.salaConsulta;
+	elementCellFecha.innerText=cita.fechaAgendada;
+	elementCellEstado.innerText=cita.estadoCita;
+	
+	elementRowCita.appendChild(elementCellNumero);
+	elementRowCita.appendChild(elementCellPaciente);
+	elementRowCita.appendChild(elementCellDoctor);
+	elementRowCita.appendChild(elementCellSala);
+	elementRowCita.appendChild(elementCellFecha);
+	elementRowCita.appendChild(elementCellEstado);
+	
+	citasP.appendChild(elementRowCita);
 }
 // generar option Doctores
 function doctores(){
@@ -183,7 +216,7 @@ request.onreadystatechange= function(){
 	if(this.readyState==4 && this.status==200 ){
 		var respuesta=JSON.parse(this.responseText);
 		console.log(cita.id)
-		procesarDatosDF(respuesta,paciente,cita);
+		procesarDatosCita(respuesta,paciente,(cita[0]) || {});
 		
 	}
 }

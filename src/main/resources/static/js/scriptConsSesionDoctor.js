@@ -22,7 +22,7 @@ function realizarPeticion( url){
 function procesarDatos(pacientes){
 	
 	for(let paciente of pacientes){
-		cerarPaciente(paciente);
+		procesarDatosPaciente(paciente);
 	}
 	
 		
@@ -97,6 +97,66 @@ function  cerarPaciente(paciente){
 	
 	ul.appendChild(liElement);
 }
+
+function procesarDatosPaciente(paciente) {
+	var elementRow= document.createElement("tr");
+	var elementCellId = document.createElement("td");
+	var elementCellNombre = document.createElement("td");
+	var elementCellFechaNac = document.createElement("td");
+	var elementCellCURP = document.createElement("td");
+	var elementCellTelefono = document.createElement("td");
+	var elementCellEmail = document.createElement("td");
+	var elementCellNacionalidad = document.createElement("td");
+	var elementCellAcciones = document.createElement("td");
+
+	elementCellId.innerText = paciente.id;
+	elementCellNombre.innerHTML = '<a href="#">' + paciente.nombre+" "+paciente.apellido + '</a>';
+	elementCellFechaNac.innerText = paciente.fechaNacimiento
+	elementCellCURP.innerText = paciente.curp;
+	elementCellTelefono.innerText = paciente.telefono;
+	elementCellEmail.innerText = paciente.email;
+	elementCellNacionalidad.innerText = paciente.nacionalidad;
+	elementCellAcciones.innerHTML = 
+	'<a href="#" class="btn btn-circle btn-sm" onclick="verHistorialPaciente(' + paciente.id + ')">' + 
+		'<i class="fas fa-user"></i>' +
+    '</a>' +
+    '<a href="#" class="btn btn-circle btn-sm" onclick="navegarCitasPaciente(' + paciente.id + ')">' + 
+		'<i class="fas fa-calendar"></i>' +
+    '</a>' +
+	'<a href="#" class="btn btn-circle btn-sm btn-primary" onclick="navegarEditarPaciente(' + paciente.id + ')">' + 
+		'<i class="fas fa-pen"></i>' +
+    '</a>' +
+    '<a href="#" class="btn btn-circle btn-sm btn-danger">' +
+        '<i class="fas fa-trash"></i>'
+    '</a>';
+
+	elementRow.appendChild(elementCellId);
+	elementRow.appendChild(elementCellNombre);
+	elementRow.appendChild(elementCellFechaNac);
+	elementRow.appendChild(elementCellCURP);
+	elementRow.appendChild(elementCellTelefono);
+	elementRow.appendChild(elementCellEmail);
+	elementRow.appendChild(elementCellNacionalidad);
+	elementRow.appendChild(elementCellAcciones);
+
+	listaPaciente.appendChild(elementRow);
+}
+
+function verHistorialPaciente(idPaciente) {
+	document.cookie="idPciente="+idPaciente;
+	window.location.assign("historialPaciente.html");
+}
+
+function navegarEditarPaciente(idPaciente) {
+	document.cookie="idPciente="+idPaciente;
+	window.location.assign("editarPaciente.html");
+}
+
+function navegarCitasPaciente(idPaciente) {
+	document.cookie="idPciente="+idPaciente;
+	window.location.assign("citaSP.html");
+}
+
 function readCookie(name) {
 
 	  var nameEQ = name + "="; 
