@@ -1,51 +1,193 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Historial Paciente</title>
+	<meta charset="UTF-8">
+	<title>Historial Paciente</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link href="css/fontawesome-free/all.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/easydoctor.css">
+	<link rel="stylesheet" type="text/css" href="css/tables.css">
+	<link href="css/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 <body onload="cargar()">
-	<div>
-	<h1>Perfil Paciente</h1>
-	<div>
-		<h2 id="nombre"></h2>
-		<ul>
-			<li id=cumple></li>
-			<li id="telefono"></li>
-			<li id="movil"></li>
-			<li id="email"></li>
-			<li id="curp"></li>
-			<li id="sex"></li>
-			<li id="tipoSangre"></li>
-			<li id="nacionalidad"></li>
-			<li id="religion"></li>
-			<li id="escolaridad"></li>
-			<li id="ocupacion"></li>
-		</ul>
-	</div>
-	<div>
-		<h2 >Historial Clinico</h2>
-		<div id="histoClinico">
-			
+	<!--<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="#">Easy-Doctor</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="consultorios.html">Consultorios</a>
+		      </li>
+		      <li class="nav-item dropdown">
+			      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                <span class="mr-2 d-none d-lg-inline">Nombre</span>
+	                 <i class="fas fa-user-circle fa-lg"></i>
+	              </a>
+	              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+	                <a class="dropdown-item" href="#">
+	                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+	                  Perfil
+	                </a>
+	                <div class="dropdown-divider"></div>
+	                <a class="dropdown-item" href="#">
+	                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+	                  Cerrar sesión
+	                </a>
+	              </div>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+	</header>-->
+	<header class="header-area header-sticky background-header">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-12">
+                  <nav class="main-nav">
+                      <!-- ***** Logo Start ***** -->
+                      <img src="images/logodoc.png" alt="" class="logo loguito-inside">
+                      <a href="index.html" class="logo">Easy<em> Doctor</em></a>
+                      <!-- ***** Logo End ***** -->
+                      <!-- ***** Menu Start ***** -->
+                      <ul class="nav">
+                          <li class="scroll-to-section"><a href="#" class="active">Home</a></li>
+                          <li class="scroll-to-section"><a href="consultorios.html">Consultorios</a></li>
+                          <li class="main-button"><a href="#">Sign Up</a></li>
+                      </ul>        
+                      <a class='menu-trigger'>
+                          <span>Menu</span>
+                      </a>
+                      <!-- ***** Menu End ***** -->
+                  </nav>
+              </div>
+          </div>
+      </div>
+    </header>
+	<div class="container-fluid" style="margin-top: 100px;">
+		<div class="row">
+			<div class="col-lg-12">
+				<a href="sesionConsDoctor.html">Regresar</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card mt-4 border-0">
+					<div class="card-header d-flex justify-content-between">
+						<h4 class="m-0 font-weight-bold text-primary" id="nombre">Nombre Paciente</h4>
+						<div>
+							<a class="btn btn-primary" href="editarPaciente.html">
+								<span class="icon">
+			                      <i class="fas fa-pen"></i>
+			                    </span>
+                    			<span class="text">Editar</span>
+							</a>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-3">
+								<div>
+									<h6 class="font-weight-bold">Fecha Nacimiento</h6>
+									<p id="cumple"></p>
+								</div>
+								<div>
+									<h6 class="font-weight-bold">Telefono</h6>
+									<p id="telefono"></p>
+								</div>
+								<div>
+									<h6 class="font-weight-bold">Movil</h6>
+									<p id="movil"></p>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div>
+									<h6 class="font-weight-bold">Correo</h6>
+									<p id="email"></p>
+								</div>
+								<div>
+									<h6 class="font-weight-bold">CURP</h6>
+									<p id="curp"></p>
+								</div>
+								<div>
+									<h6 class="font-weight-bold">Nacionalidad</h6>
+									<p id="nacionalidad"></p>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div>
+									<h6 class="font-weight-bold">Tipo sangre</h6>
+									<p id="tipoSangre"></p>
+								</div>
+								<div>
+									<h6 class="font-weight-bold">Sexo</h6>
+									<p id="sex"></p>
+								</div>
+								<div>
+									<h6 class="font-weight-bold">Religion</h6>
+									<p id="religion"></p>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div>
+									<h6 class="font-weight-bold">Escolaridad</h6>
+									<p id="escolaridad"></p>
+								</div>
+								<div>
+									<h6 class="font-weight-bold">Ocupacion</h6>
+									<p id="ocupacion"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card mt-4 mb-4 border-left-primary">
+					<div class="card-header">
+						<h6 class="m-0 font-weight-bold text-primary">Historial</h6>
+					</div>
+					<div class="card-body">
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+						  <li class="nav-item">
+						    <a class="nav-link active" id="clinico-tab" data-toggle="tab" href="#histoClinico" role="tab" aria-controls="histoClinico" aria-selected="true">Clinico</a>
+						  </li>
+						  <li class="nav-item">
+						    <a class="nav-link" id="no-clinico-tab" data-toggle="tab" href="#histoNoClinico" role="tab" aria-controls="histoNoClinico" aria-selected="true">No Clinico</a>
+						  </li>
+						  <li class="nav-item">
+						    <a class="nav-link" id="sexual-tab" data-toggle="tab" href="#histoSex" role="tab" aria-controls="histoSex" aria-selected="true">Sexual</a>
+						  </li>
+						  <li class="nav-item">
+						    <a class="nav-link" id="familiar-tab" data-toggle="tab" href="#histoFam" role="tab" aria-controls="histoFam" aria-selected="true">Familiar</a>
+						  </li>
+						</ul>
+						<div class="tab-content" id="myTabContent">
+						  <div class="tab-pane fade show active" id="histoClinico" role="tabpanel" aria-labelledby="clinico-tab">
+						  </div>
+						  <div class="tab-pane fade" id="histoNoClinico" role="tabpanel" aria-labelledby="no-clinico-tab">
+						  </div>
+						  <div class="tab-pane fade" id="histoSex" role="tabpanel" aria-labelledby="sexual-tab">
+						  </div>
+						  <div class="tab-pane fade" id="histoFam" role="tabpanel" aria-labelledby="familiar-tab">
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div>
-		<h2>Historial No Clinico</h2>
-		<ul id="histoNoClinico">
-		</ul>
-	</div>
-	<div>
-		<h2>Historial Sexual</h2>
-		<ul id="histoSex">
-		</ul>
-	</div>
-	<div>
-		<h2>Historial Familiar</h2>
-		<ul id="histoFam">
-		</ul>
-	</div>
-	<a href="sesionConsDoctor.html">Regresar</a>
-	</div>
-<script type="text/javascript" src="js/scriptHistorialPaciente.js"></script>
+	<script src="js/sb-admin/jquery/jquery.min.js"></script>
+	<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/sb-admin/sb-admin-2.js"></script>
+	<script type="text/javascript" src="js/scriptHistorialPaciente.js"></script>
 </body>
 </html>

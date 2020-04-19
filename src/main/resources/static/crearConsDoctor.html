@@ -1,37 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Crear Consultorio</title>
+	<meta charset="UTF-8">
+	<title>Crear Consultorio</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/fontawesome-free/all.min.css">
+	<link rel="stylesheet" href="css/easydoctor.css">
+	<link rel="stylesheet" type="text/css" href="css/tables.css">
 </head>
 <body>
-<h1>Nuevo Consultorio</h1>
-		<div>
-			<div>
-				<label>Nombre</label>
-				<input type="text" id="Nombre">
+	<!--<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="#">Easy-Doctor</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="sesionDoctor.html">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="consultoriosd.html">Consultorios</a>
+		      </li>
+		      <li class="nav-item dropdown">
+			      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                <span class="mr-2 d-none d-lg-inline">Nombre</span>
+	                 <i class="fas fa-user-circle fa-lg"></i>
+	              </a>
+	              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+	                <a class="dropdown-item" href="#">
+	                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+	                  Perfil
+	                </a>
+	                <div class="dropdown-divider"></div>
+	                <a class="dropdown-item" href="#">
+	                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+	                  Cerrar sesión
+	                </a>
+	              </div>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+	</header>-->
+	<header class="header-area header-sticky background-header">
+	    <div class="container-fluid">
+	        <div class="row">
+	            <div class="col-12">
+	                <nav class="main-nav">
+	                    <!-- ***** Logo Start ***** -->
+	                    <img src="images/logodoc.png" alt="" class="logo loguito-inside">
+	                    <a href="index.html" class="logo">Easy<em> Doctor</em></a>
+	                    <!-- ***** Logo End ***** -->
+	                    <!-- ***** Menu Start ***** -->
+	                    <ul class="nav">
+	                        <li class="scroll-to-section"><a href="sesionConsDoctor.html" class="active">Home</a></li>
+	                        <li class="scroll-to-section"><a href="consultoriosd.html">Consultorios</a></li>
+	                        <li class="main-button"><a href="#">Sign Up</a></li>
+	                    </ul>        
+	                    <a class='menu-trigger'>
+	                        <span>Menu</span>
+	                    </a>
+	                    <!-- ***** Menu End ***** -->
+	                </nav>
+	            </div>
+	        </div>
+	    </div>
+    </header>
+	<div class="container-fluid" style="margin-top: 100px;">
+		<div class="row">
+			<div class="col-lg-12">
+				<a href="sesionDoctor.html">Regresar</a>
 			</div>
-			<div>
-				<label>Direccion</label>
-				<input type="text"id="Direccion">
-			</div>
-			<div>
-				<label>Encargado</label>
-				<input type="text" id="Encargado">
-			</div>
-			<div>
-				<label>Telefono</label>
-				<input type="text" id="Telefono">
-			</div>
-			<div>
-				<label>E-mail</label>
-				<input type="text" id="Email">
-			</div>
-			<button onclick="optenerDatos()">Crear</button>
 		</div>
-		<a href="sesionDoctor.html">Regresar</a>
-
+		<div class="row d-flex justify-content-center">
+			<div class="col-lg-4">
+				<div class="card mt-4 mb-4 border-left-primary">
+					<div class="card-header">
+						<h6 class="m-0 font-weight-bold text-primary">Nuevo Consultorio</h6>	
+					</div>
+					<div class="card-body">
+						<div class="form-group">
+							<label>Nombre</label>
+							<input class="form-control" type="text" id="Nombre">
+						</div>
+						<div class="form-group">
+							<label>Direccion</label>
+							<input class="form-control" type="text"id="Direccion">
+						</div>
+						<div class="form-group">
+							<label>Encargado</label>
+							<input class="form-control" type="text" id="Encargado">
+						</div>
+						<div class="form-group">
+							<label>Telefono</label>
+							<input class="form-control" type="text" id="Telefono">
+						</div>
+						<div class="form-group">
+							<label>E-mail</label>
+							<input class="form-control" type="email" id="Email">
+						</div>
+						<div></div>
+						<button class="btn btn-primary" onclick="optenerDatos()">Crear</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script src="js/sb-admin/jquery/jquery.min.js"></script>
+<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="js/scriptCrearConsDoctor.js"></script>
-
 </body>
 </html>

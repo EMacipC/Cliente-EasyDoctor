@@ -1,50 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Cita</title>
+	<meta charset="UTF-8">
+	<title>Cita</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/fontawesome-free/all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/easydoctor.css">
+	<link rel="stylesheet" type="text/css" href="css/tables.css">
 </head>
-<body onload="doctores()">
-	<div>
-		<div>
-			<h2>Citas Programadas</h2>
-			<button onclick="mostarCitasP()">Citas</button>
-			<ul id="citasP"></ul>
+<body onload="onLoad()">
+	<!--<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="#">Easy-Doctor</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="consultorios.html">Consultorios</a>
+		      </li>
+		      <li class="nav-item dropdown">
+			      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                <span class="mr-2 d-none d-lg-inline">Nombre</span>
+	                 <i class="fas fa-user-circle fa-lg"></i>
+	              </a>
+	              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+	                <a class="dropdown-item" href="#">
+	                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+	                  Perfil
+	                </a>
+	                <div class="dropdown-divider"></div>
+	                <a class="dropdown-item" href="#">
+	                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+	                  Cerrar sesión
+	                </a>
+	              </div>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+	</header>-->
+	<header class="header-area header-sticky background-header">
+	    <div class="container-fluid">
+	        <div class="row">
+	            <div class="col-12">
+	                <nav class="main-nav">
+	                    <!-- ***** Logo Start ***** -->
+	                    <img src="images/logodoc.png" alt="" class="logo loguito-inside">
+	                    <a href="index.html" class="logo">Easy<em> Doctor</em></a>
+	                    <!-- ***** Logo End ***** -->
+	                    <!-- ***** Menu Start ***** -->
+	                    <ul class="nav">
+	                        <li class="scroll-to-section"><a href="sesionDoctor.html" class="active">Home</a></li>
+	                        <li class="scroll-to-section"><a href="consultoriosd.html">Consultorios</a></li>
+	                        <li class="main-button"><a href="iniciarSesion.html">Sign Up</a></li>
+	                    </ul>        
+	                    <a class='menu-trigger'>
+	                        <span>Menu</span>
+	                    </a>
+	                    <!-- ***** Menu End ***** -->
+	                </nav>
+	            </div>
+	        </div>
+	    </div>
+    </header>
+	<div class="container-fluid" style="margin-top: 100px;">
+		<div class="row">
+			<div class="col-lg-12">
+				<a id="regersar" href="#">Regresar</a>
+			</div>
 		</div>
-		<div>
-			<h2>Agendar Cita</h2>
-			<div>
-				<label>Sala</label>
-				<input type="text" id="sala">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card mt-4 border-0">
+					<div class="card-header">
+						<h4 class="m-0 font-weight-bold text-primary" id="nombre">Registrar cita</h4>
+					</div>
+					<div class="card-body">
+						<div>
+							<div class="form-row">
+								<div class="form-group col-md-2">
+									<label>Sala</label>
+									<input class="form-control" type="text" id="sala" required>
+								</div>
+								<div class="form-group col-md-2">
+									<label>Doctor</label>
+									<select class="form-control" id="doctor">
+									</select>
+								</div>
+								<div class="form-group col-md-2">
+									<label>Fecha Agendada</label>
+									<input class="form-control" type="date" id="fecha" required>
+								</div>
+								<div class="form-group col-md-2">
+									<label>Estado Cita</label>
+									<input class="form-control" type="text" id="estado" required>
+								</div>
+								<div class="col-md-2 d-flex align-items-center">
+									<div>
+										<button class="btn btn-primary" onclick="registrarCita()">Registrar</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div>
-				<label>Estado Cita</label>
-				<input type="text" id="estado">
-			</div>
-			<div>
-				<label>Fecha Agendada</label>
-				<input type="date" id="fecha">
-			</div>
-			<div>
-				<label>Doctor</label>
-				<select id="doctor">
-				</select>
-			</div>
-			<button onclick="registrarCita()">Registrar</button>
 		</div>
-		<div>
-			<h2>Buscar por Fecha</h2>
-			<div>
-				<label>Fecha</label>
-				<input type="date" id="ofecha">
-			</div>
-			<button onclick="buscarCita()">Buscar</button>
-			<div>
-				<ul id="citaF"></ul>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="form-group d-flex align-items-center">
+					<label>Buscar:</label>
+					<div class="col-md-2">
+						<input class="form-control" type="date" id="ofecha" placeholder="Fecha">
+					</div>
+					<button class="btn btn-primary" onclick="buscarCita()">Buscar</button>
+				</div>
 			</div>
 		</div>
-		<a id="regersar">Regresar</a>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Numero</th>
+                      <th>Paciente</th>
+                      <th>Doctor</th>
+                      <th>Sala</th>
+                      <th>Fecha</th>
+                      <th>Estado</th>
+                      <!--<th>Acciones</th>-->
+                    </tr>
+                  </thead>
+                  <tbody id="citasP">
+                  </tbody>
+                </table>
+              </div>
+			</div>
+		</div>
 	</div>
+	<script src="js/sb-admin/jquery/jquery.min.js"></script>
+	<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/sb-admin/sb-admin-2.js"></script>
 	<script type="text/javascript" src="js/scriptCitaSP.js"></script>
 </body>
 </html>

@@ -2,13 +2,14 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Crear Consultorio</title>
+	<title>Consultorios</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/fontawesome-free/all.min.css">
 	<link rel="stylesheet" type="text/css" href="css/easydoctor.css">
-  	<link rel="stylesheet" type="text/css" href="css/tables.css">
+	<link rel="stylesheet" type="text/css" href="css/tables.css">
+	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
 </head>
-<body>
+<body onload="mostrarConsultorios()">
 	<!--<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		  <a class="navbar-brand" href="#">Easy-Doctor</a>
@@ -69,48 +70,52 @@
 	        </div>
 	    </div>
     </header>
-	<div class="container-fluid" style="margin-top: 100px;">
+    <div class="container-fluid" style="margin-top: 100px;">
+    	<div class="row">
+	        <div class="col-lg-12">
+	          <a href="sesionSecretaria.html">Regresar</a>
+	        </div>
+	    </div>
 		<div class="row">
 			<div class="col-lg-12">
-				<a href="sesionSecretaria.html">Regresar</a>
+				<div class="card shadow mb-4">
+		            <div class="card-header py-3">
+		              <h6 class="m-0 font-weight-bold text-primary">Consultorios</h6>
+		              <a href="crearConsSecre.html" class="btn btn-light btn-icon-split">
+		                    <span class="icon text-gray-600">
+		                      <i class="fas fa-plus"></i>
+		                    </span>
+		                    <span class="text">Nuevo</span>
+		                 </a>
+		            </div>
+		            <div class="card-body">
+		              <div class="table-responsive">
+		                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+		                  <thead>
+		                    <tr>
+		                      <th>Id</th>
+		                      <th>Nombre</th>
+		                      <th>Direccion</th>
+		                      <th>Telefono</th>
+		                      <th>Encargado</th>
+		                      <th>Email</th>
+		                      <th>Clave</th>
+		                      <th>Acciones</th>
+		                    </tr>
+		                  </thead>
+		                  <tbody id="lista">
+		                  </tbody>
+		                </table>
+		              </div>
+		            </div>
+			    </div>
 			</div>
 		</div>
-		<div class="row d-flex justify-content-center">
-			<div class="col-lg-4">
-				<div class="card mt-4 mb-4 border-left-primary">
-					<div class="card-header">
-						<h6 class="m-0 font-weight-bold text-primary">Nuevo Consultorio</h6>	
-					</div>
-					<div class="card-body">
-						<div class="form-group">
-							<label>Nombre</label>
-							<input class="form-control" type="text" id="Nombre">
-						</div>
-						<div class="form-group">
-							<label>Direccion</label>
-							<input class="form-control" type="text"id="Direccion">
-						</div>
-						<div class="form-group">
-							<label>Encargado</label>
-							<input class="form-control" type="text" id="Encargado">
-						</div>
-						<div class="form-group">
-							<label>Telefono</label>
-							<input class="form-control" type="text" id="Telefono">
-						</div>
-						<div class="form-group">
-							<label>E-mail</label>
-							<input class="form-control" type="email" id="Email">
-						</div>
-						<div></div>
-						<button class="btn btn-primary" onclick="optenerDatos()">Crear</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-<script src="js/sb-admin/jquery/jquery.min.js"></script>
-<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="js/scriptCrearConsSecre.js"></script>
+    </div>
+	<script src="js/sb-admin/jquery/jquery.min.js"></script>
+	<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/sb-admin/sb-admin-2.js"></script>
+	<script src="js/datatables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/scriptSesionSecretaria.js"></script>
 </body>
 </html>

@@ -1,57 +1,197 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Registro Doctor</title>
-</head>
-<body>
-<div>
-	<h1>Registrar Doctor</h1>
-		<div>
-			<label>Nombre</label>
-			<input type="text" id="Nombre">
-		</div>
-		<div>
-			<label>Apellido</label>
-			<input type="text"id="Apellido">
-		</div>
-		<div>
-			<label>Direccion</label>
-			<input type="text" id="Direccion">
-		</div>
-		<div>
-			<label>Telefono</label>
-			<input type="text" id="Telefono">
-		</div>
-		<div>
-			<label>Movil</label>
-			<input type="text" id="Movil">
-		</div>
-		<div>
-			<label>E-mail</label>
-			<input type="text" id="Email">
-		</div>
-		<div>
-			<label>Especialidad</label>
-			<input type="text" id="Especialidad">
-		</div>
-		<div>
-			<label>Usuario</label>
-			<input type="text" id="Usuario">
-		</div>
-		<div>
-			<label>Contraseña</label>
-			<input type="password" id="Contrasena">
-		</div>
-		<div>
-			<label>Repetir Contraseña</label>
-			<input type="password" id="RContrasena">
-		</div>
-		<button onclick="optenerDatos()">Registrar</button>
-	</div>
-	<a href="index.html">Regresar</a>
-	<script type="text/javascript" src="js/scriptRegistrarDoctor.js"></script>
+<html lang="en">
 
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+    <title>EasyDoctor WebApp</title>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
+    <link rel="stylesheet" href="css/easydoctor.css">
+
+    </head>
+    
+    <body>
+    
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    
+    
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <img src="images/logodoc.png" alt=""  id="loguito" class="logo">
+                        <a href="index.html" class="logo">Easy<em> Doctor</em></a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="index.html" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="#our-offices">Features</a></li>
+                            <li class="scroll-to-section"><a href="#doctors">They say</a></li>
+                            <li class="scroll-to-section"><a href="#contact-us">Contact</a></li> 
+                            <li class="main-button"><a href="iniciarSesion.html">Sign Up</a></li>
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+ <!-- ***** Call to Action Start ***** -->
+ <section class="section" id="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="cta-content">
+                    <h2>Don’t <em>think</em>, begin <em>today</em>!</h2>
+                    <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
+                    <div class="main-button scroll-to-section">
+                        <a href="#top">Become a member</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Call to Action End ***** -->
+
+
+
+<div class="col-lg-12 col-md-12 col-xs-12 mt-4">
+    <div class="contact-form">
+        <form id="contact" action="" method="post">
+          <div class="row">
+              
+            <div class="col-md-6 col-sm-6 ">
+              <fieldset>
+                <input name="name"  type="text" id="Nombre" placeholder="Your Name*" required="">
+              </fieldset>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <fieldset>
+                  <input name="lastname" type="text" id="Apellido" placeholder="Your Lastname*" required="">
+                </fieldset>
+              </div>
+              <div class="col-md-12 col-sm-12">
+              <fieldset>
+                <input name="Adress" type="text" id="Direccion" placeholder="Adress">
+              </fieldset>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <fieldset>
+                  <input name="Phone" type="text" id="Telefono" placeholder="Phone">
+                </fieldset>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                <fieldset>
+                  <input name="Cellphone" type="text" id="Movil" placeholder="Cellphone">
+                </fieldset>
+              </div>
+            <div class="col-md-6 col-sm-6">
+              <fieldset>
+                <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" required="">
+              </fieldset>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <fieldset>
+                  <input name="Speciality" type="text" id="Especialidad" placeholder="Speciality*" required="">
+                </fieldset>
+              </div>
+
+              <div class="col-md-4 col-sm-4 col-xs-4">
+                <fieldset>
+                  <input name="User" type="text" id="Usuario" placeholder="Username*" required="">
+                </fieldset>
+              </div>
+
+              <div class="col-md-4 col-sm-4 col-xs-4">
+                <fieldset>
+                  <input name="Password" type="password" id="Contrasena" placeholder="Password*" required="">
+                </fieldset>
+              </div>
+
+              <div class="col-md-4 col-sm-4 col-xs-4">
+                <fieldset>
+                  <input name="Rpassword" type="password" id="RContrasena" placeholder="Repeat password*" required="">
+                </fieldset>
+              </div>
+
+
+
+
+        
+            <div class="col-lg-12">
+              <fieldset>
+
+                <button onclick="optenerDatos()" class="main-button" >Submit</button>
+               
+              </fieldset>
+            </div>
+          </div>
+        </form>
+    </div>
+</div>
+
+
+ <!-- ***** Footer Start ***** -->
+ <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; 2020 Generation EasyDoctor 
+                
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery-2.1.0.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="js/popper.js"></script>
+<script src="js/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugins -->
+<script src="js/scrollreveal.min.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/jquery.counterup.min.js"></script>
+<script src="js/imgfix.min.js"></script> 
+<script src="js/mixitup.js"></script> 
+<script src="js/accordions.js"></script>
+
+<!-- Global Init -->
+<script src="js/custom.js"></script>
+<script src="js/scriptRegistrarDoctor.js"></script>
 
 </body>
 </html>

@@ -1,25 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Iniciar Sesion</title>
+	<meta charset="UTF-8">
+	<title>Iniciar Sesion</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/easydoctor.css">
+
 </head>
 <body>
-<div>
-		<div>
-			<label>Ususario</label>
-			<input type="text" id="usuario">
-		</div>
-		<div>
-			<label>Contraseña</label>
-			<input type="password" id="contrasena">
-		</div>
-		<div>
-			<button onclick= "optenerDatos()">Iniciar Sesion</button>
-		</div>
-		<a href="index.html">Regresar</a>
-</div>
-<script type="text/javascript" src="js/scriptIniciarSesion.js"></script>
+	<!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <img src="images/logodoc.png" alt=""  id="loguito" class="logo">
+                        <a href="index.html" class="logo">Easy<em> Doctor</em></a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="index.html" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="#our-offices">Features</a></li>
+                            <li class="scroll-to-section"><a href="#doctors">They say</a></li>
+                            <li class="scroll-to-section"><a href="#contact-us">Contact</a></li> 
+                            <li class="main-button"><a href="iniciarSesion.html">Sign Up</a></li>
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="section" id="call-to-action">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-lg-10 offset-lg-1">
+	                <div class="contact-form d-flex flex-column align-items-center mt-4">
+	                    <div class="form-group col-lg-4">
+							<label class="text-light">USER</label>
+							<input type="text" id="usuario">
+						</div>
+						<div class="form-group col-lg-4">
+							<label class="text-light">PASSWORD</label>
+							<input type="password" id="contrasena">
+						</div>
+						<div class="main-button text-light">
+							<a onclick= "optenerDatos()">LOGIN</button>
+						</div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; 2020 Generation Easy Doctor 
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+	<!-- jQuery -->
+	<script src="js/jquery-2.1.0.min.js"></script>
 
+	<!-- Bootstrap -->
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Plugins -->
+	<script src="js/scrollreveal.min.js"></script>
+	<script src="js/waypoints.min.js"></script>
+	<script src="js/jquery.counterup.min.js"></script>
+	<script src="js/imgfix.min.js"></script> 
+	<script src="js/mixitup.js"></script> 
+	<script src="js/accordions.js"></script>
+
+	<!-- Global Init -->
+	<script src="js/custom.js"></script>
+	<script type="text/javascript" src="js/scriptIniciarSesion.js"></script>
 </body>
 </html>

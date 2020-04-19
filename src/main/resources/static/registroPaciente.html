@@ -1,79 +1,168 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Registro de Paciente</title>
+	<meta charset="UTF-8">
+	<title>Registro de Paciente</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link href="css/fontawesome-free/all.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/easydoctor.css">
+  	<link rel="stylesheet" type="text/css" href="css/tables.css">
 </head>
 <body onload="docSec()">
-	<div>
-		<h1>Registrar Paciente</h1>
-		<div>
-			<label>Nombre</label>
-			<input type="text" name="txtNombre" id="Nombre">
+	<!--<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="#">Easy-Doctor</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="consultorios.html">Consultorios</a>
+		      </li>
+		      <li class="nav-item dropdown">
+			      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                <span class="mr-2 d-none d-lg-inline">Nombre</span>
+	                 <i class="fas fa-user-circle fa-lg"></i>
+	              </a>
+	              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+	                <a class="dropdown-item" href="#">
+	                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+	                  Perfil
+	                </a>
+	                <div class="dropdown-divider"></div>
+	                <a class="dropdown-item" href="#">
+	                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+	                  Cerrar sesión
+	                </a>
+	              </div>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+	</header>-->
+	<header class="header-area header-sticky background-header">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-12">
+                  <nav class="main-nav">
+                      <!-- ***** Logo Start ***** -->
+                      <img src="images/logodoc.png" alt="" class="logo loguito-inside">
+                      <a href="index.html" class="logo">Easy<em> Doctor</em></a>
+                      <!-- ***** Logo End ***** -->
+                      <!-- ***** Menu Start ***** -->
+                      <ul class="nav">
+                          <li class="scroll-to-section"><a href="#" class="active">Home</a></li>
+                          <li class="scroll-to-section"><a href="consultorios.html">Consultorios</a></li>
+                          <li class="main-button"><a href="#">Sign Up</a></li>
+                      </ul>        
+                      <a class='menu-trigger'>
+                          <span>Menu</span>
+                      </a>
+                      <!-- ***** Menu End ***** -->
+                  </nav>
+              </div>
+          </div>
+      </div>
+    </header>
+	<div class="container-fluid" style="margin-top: 100px;">
+		<div class="row">
+			<div class="col-lg-12">
+				<a id="regersar">Regresar</a>
+			</div>
 		</div>
-		<div>
-			<label>Apellido</label>
-			<input type="text" name="txtApellido" id="Apellido">
+		<div class="row d-flex justify-content-center">
+			<div class="col-lg-12">
+				<div class="card shadow mt-4 mb-4 border-left-primary">
+					<div class="card-header">
+						<h6 class="m-0 font-weight-bold text-primary">Nuevo Paciente</h6>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="form-group">
+								<label>Nombre</label>
+								<input class="form-control" type="text" name="txtNombre" id="Nombre">
+							</div>
+							<div class="form-group">
+								<label>Apellido</label>
+								<input class="form-control" type="text" name="txtApellido" id="Apellido">
+							</div>
+							<div class="form-group">
+								<label>Curp</label>
+								<input class="form-control" type="text" name="txtCurp" id="Curp">
+							</div>
+							<div class="form-group">
+								<label>Fecha Nacimiento</label>
+								<input class="form-control" type="date" name="txtFNacimiento" id="FN">
+							</div>
+							<div class="form-group">
+								<label>Telefono</label>
+								<input class="form-control" type="text" name="txtTelefono" id="Telefono">
+							</div>
+							<div class="form-group">
+								<label>Movil</label>
+								<input class="form-control" type="text" name="txtMovil" id="Movil">
+							</div>
+							<div class="form-group">
+								<label>E-mail</label>
+								<input class="form-control" type="text" name="txtEmail" id="Email">
+							</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+								<label>Sexo</label>
+								<select class="form-control" name="txtSexo" id="Sexo">
+									<option value="Hombre">Hombre</option>
+									<option value="Mujer">Mujer</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Tipo De Sangre</label>
+								<select class="form-control" name="txtTipoS" id="TS">
+									<option value="A+">A+</option>
+									<option value="B+">B+</option>
+									<option value="O+">O+</option>
+									<option value="AB+">AB+</option>
+									<option value="A-">A-</option>
+									<option value="B-">B-</option>
+									<option value="O-">O-</option>
+									<option value="AB-">AB-</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Nacionalidad</label>
+								<input class="form-control" type="text" name="txtNacionalidad" id="Nacionalidad">
+							</div>
+							<div class="form-group">
+								<label>Religion</label>
+								<input class="form-control" type="text" name="txtReligion"id="Religion">
+							</div>
+							<div class="form-group">
+								<label>Escolaridad</label>
+								<input class="form-control" type="text" name="txtEscolaridad" id="Escolaridad">
+							</div>
+							<div class="form-group">
+								<label>Ocupacion</label>
+								<input class="form-control" type="text" name="txtOcupacion" id="Ocupacion">
+							</div>
+							</div>
+							<div>
+								<button class="btn btn-primary" onclick="optenerDatos()">Registrar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div>
-			<label>Curp</label>
-			<input type="text" name="txtCurp" id="Curp">
-		</div>
-		<div>
-			<label>Fecha Nacimiento</label>
-			<input type="date" name="txtFNacimiento" id="FN">
-		</div>
-		<div>
-			<label>Telefono</label>
-			<input type="text" name="txtTelefono" id="Telefono">
-		</div>
-		<div>
-			<label>Movil</label>
-			<input type="text" name="txtMovil" id="Movil">
-		</div>
-		<div>
-			<label>E-mail</label>
-			<input type="text" name="txtEmail" id="Email">
-		</div>
-		<div>
-			<label>Sexo</label>
-			<select name="txtSexo" id="Sexo">
-				<option value="Hombre">Hombre</option>
-				<option value="Mujer">Mujer</option>
-			</select>
-		</div>
-		<div>
-			<label>Tipo De Sangre</label>
-			<select name="txtTipoS" id="TS">
-				<option value="A+">A+</option>
-				<option value="B+">B+</option>
-				<option value="O+">O+</option>
-				<option value="AB+">AB+</option>
-				<option value="A-">A-</option>
-				<option value="B-">B-</option>
-				<option value="O-">O-</option>
-				<option value="AB-">AB-</option>
-			</select>
-		</div>
-		<div>
-			<label>Nacionalidad</label>
-			<input type="text" name="txtNacionalidad" id="Nacionalidad">
-		</div>
-		<div>
-			<label>Religion</label>
-			<input type="text" name="txtReligion"id="Religion">
-		</div>
-		<div>
-			<label>Escolaridad</label>
-			<input type="text" name="txtEscolaridad" id="Escolaridad">
-		</div>
-		<div>
-			<label>Ocupacion</label>
-			<input type="text" name="txtOcupacion" id="Ocupacion">
-		</div>
-		<button onclick="optenerDatos()">Registrar</button>
 	</div>
-	<a id="regersar">Regresar</a>
+	<script src="js/sb-admin/jquery/jquery.min.js"></script>
+	<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/sb-admin/sb-admin-2.js"></script>
 	<script type="text/javascript" src="js/scriptRegistroPaciente.js"></script>
 
 </body>

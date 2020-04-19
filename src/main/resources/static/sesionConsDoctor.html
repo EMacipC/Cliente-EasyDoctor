@@ -1,37 +1,137 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Consultorio Doctor</title>
+	<meta charset="UTF-8">
+	<title>Consultorio Doctor</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/fontawesome-free/all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/easydoctor.css">
+	<link rel="stylesheet" type="text/css" href="css/tables.css">
 </head>
-<body onload="perfilCon()">
-<h1>Perfil Consultorio</h1>
-	<div>
-		<h2 id="consultorio"></h2>
-		<ul>
-			<li id="direccion"></li>
-			<li id="telefono"></li>
-			<li id="encargado"></li>
-			<li id="email"></li>
-		</ul>
+<!--<body onload="perfilCon()">-->
+<body onload="cargarPacientes()">
+	<!--<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="#">Easy-Doctor</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="consultoriosd.html">Consultorios</a>
+		      </li>
+		      <li class="nav-item dropdown">
+			      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                <span class="mr-2 d-none d-lg-inline">Nombre</span>
+	                 <i class="fas fa-user-circle fa-lg"></i>
+	              </a>
+	              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+	                <a class="dropdown-item" href="#">
+	                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+	                  Perfil
+	                </a>
+	                <div class="dropdown-divider"></div>
+	                <a class="dropdown-item" href="#">
+	                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+	                  Cerrar sesión
+	                </a>
+	              </div>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+	</header>-->
+	<header class="header-area header-sticky background-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <img src="images/logodoc.png" alt="" class="logo loguito-inside">
+                        <a href="index.html" class="logo">Easy<em> Doctor</em></a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="sesionConsDoctor.html" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="consultoriosd.html">Consultorios</a></li>
+                            <li class="main-button"><a href="#">Sign Up</a></li>
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+	<div class="container-fluid" style="margin-top: 100px;">
+		<div class="row">
+			<div class="col-lg-6">
+				<a href="sesionDoctor.html">Regresar</a>
+			</div>
+			<div class="col-lg-6">
+				<a href="registroPaciente.html">Registrar Nuevo Paciente</a>
+			</div>
+		</div>
+		<div class="row">
+			<!--<div class="card">
+				<div class="card-head">
+					<h2 id="consultorio"></h2>
+				</div>
+				<div class="card-body">
+					<ul>
+						<li id="direccion"></li>
+						<li id="telefono"></li>
+						<li id="encargado"></li>
+						<li id="email"></li>
+					</ul>
+				</div>
+			</div>-->
+			<div class="col-sm-9">
+				<!-- TODO CARGAR NOMBRE DEL CONSULTORIO -->
+				<h2 id="consultorio">Nombre consultorio</h2>
+			</div>
+			<div class="col-sm-3">
+				<div class="mb-2">
+					<label>Buscar Paciente</label>
+					<input class="form-control" type="text" id="nombre">
+				</div>
+				<button class="btn btn-primary" onclick="optenerNombre()"class="button">Buscar</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="table-responsive mt-2">
+	            	<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+		              <thead>
+		                <tr>
+		                  <th>Id</th>
+		                  <th>Nombre</th>
+		                  <th>Fecha Nacimiento</th>
+		                  <th>CURP</th>
+		                  <th>Telefono</th>
+		                  <th>Email</th>
+		                  <th>Nacionalidad</th>
+		                  <th>Acciones</th>
+		                </tr>
+		              </thead>
+		              <tbody id="listaPaciente">
+		              </tbody>
+	            	</table>
+	          	</div>
+			</div>
+		</div>
 	</div>
-	<div>
-		<label>Buscar Paciente</label>
-		<input type="text" id="nombre">
-		<button onclick="optenerNombre()"class="button">Buscar</button>
-	</div>
-	<div>
-		<button onclick="cargarPacientes()" class="button">Paciente</button>
-		<div id="listaPaciente"></div>
-				
-	</div>
-	<div>
-		<a href="registroPaciente.html">Registrar Nuevo Paciente</a>
-	</div>
-	<a href="sesionDoctor.html">Regresar</a>
+	<script src="js/sb-admin/jquery/jquery.min.js"></script>
+	<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/sb-admin/sb-admin-2.js"></script>
 	<script type="text/javascript" src="js/scriptBuscarNombreDoctor.js"></script>
 	<script type="text/javascript" src="js/scriptConsSesionDoctor.js"></script>
-	
-
 </body>
 </html>
